@@ -40,4 +40,16 @@ public class JobTest {
         assertFalse(jobTest4.equals(jobTest5));
 
     }
+
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job jobTest6 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        String expectedStart = jobTest6.toString().substring(0,System.lineSeparator().length());
+        String expectedEnd = jobTest6.toString().substring(jobTest6.toString().length() - System.lineSeparator().length(), jobTest6.toString().length());
+
+        assertEquals(System.lineSeparator(), expectedStart);
+        assertEquals(System.lineSeparator(), expectedEnd);
+    }
+
+
 }

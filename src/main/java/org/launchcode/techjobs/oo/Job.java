@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static java.lang.System.lineSeparator;
+
 public class Job {
 
     private int id;
@@ -46,6 +48,7 @@ public class Job {
         return Objects.hash(id);
     }
 
+
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
 
@@ -54,6 +57,9 @@ public class Job {
     }
 
     public String getName() {
+        if (name == null || name.isEmpty()) {
+            return "Data not available";
+        }
         return name;
     }
 
@@ -92,4 +98,17 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
+    @Override
+    public String toString() {
+        return System.lineSeparator() +
+                "ID: " + id + System.lineSeparator() +
+                "Name: " + name + System.lineSeparator() +
+                "Employer: " + employer.getValue() + System.lineSeparator() +
+                "Location: " + location.getValue() + System.lineSeparator() +
+                "Position Type: " + positionType.getValue() + System.lineSeparator() +
+                "Core Competency: " + coreCompetency.getValue() + System.lineSeparator();
+    }
+
+
 }

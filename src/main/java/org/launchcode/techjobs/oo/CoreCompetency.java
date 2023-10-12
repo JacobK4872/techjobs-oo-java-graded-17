@@ -42,6 +42,9 @@ public class CoreCompetency {
     //  ONLY a getter for the 'id' field.
 
     public String getValue() {
+        if (value == null || value.isEmpty()) {
+            return "Data not available";
+        }
         return value;
     }
 
