@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.oo;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -47,6 +48,10 @@ public class JobTest {
         String expectedStart = jobTest6.toString().substring(0,System.lineSeparator().length());
         String expectedEnd = jobTest6.toString().substring(jobTest6.toString().length() - System.lineSeparator().length(), jobTest6.toString().length());
 
+        String dataInfo = "ID: " + jobTest6.getId() + "\r\nName: Product tester\r\nEmployer: ACME\r\nLocation: Desert" +
+                "\r\nPosition Type: Quality control\r\nCore Competency: Persistence";
+
+        Assert.assertEquals(System.lineSeparator() + dataInfo + System.lineSeparator(), jobTest6.toString());
         assertEquals(System.lineSeparator(), expectedStart);
         assertEquals(System.lineSeparator(), expectedEnd);
     }

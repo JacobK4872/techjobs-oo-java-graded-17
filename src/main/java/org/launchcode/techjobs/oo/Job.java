@@ -101,7 +101,7 @@ public class Job {
 
     @Override
     public String toString() {
-        return System.lineSeparator() +
+        return  System.lineSeparator() +
                 "ID: " + id + System.lineSeparator() +
                 "Name: " + name + System.lineSeparator() +
                 "Employer: " + employer.getValue() + System.lineSeparator() +
