@@ -55,13 +55,13 @@ public class JobTest {
     @Test
     public void testToStringContainsCorrectLabelsAndData() {
         Job testJob7 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
-        assertEquals("\r\nID: " + testJob7.getId() + "\r\nName: Product tester\r\nEmployer: ACME\r\nLocation: Desert\r\nPosition Type: Quality control\r\nCore Competency: Persistence\r\n", testJob7.toString());
+        assertEquals(System.lineSeparator() + "ID: " + testJob7.getId() + System.lineSeparator() + "Name: Product tester" + System.lineSeparator() + "Employer: ACME" + System.lineSeparator() + "Location: Desert" + System.lineSeparator() + "Position Type: Quality control" + System.lineSeparator() + "Core Competency: Persistence" + System.lineSeparator(), testJob7.toString());
 
     }
 
     @Test
     public void testToStringHandlesEmptyField() {
         Job testJob5 = new Job("Product tester", new Employer(""), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency(""));
-        assertEquals("\r\nID: " + testJob5.getId() + "\r\nName: Product tester\r\nEmployer: Data not available\r\nLocation: Desert\r\nPosition Type: Quality control\r\nCore Competency: Data not available\r\n", testJob5.toString());
+        assertEquals(System.lineSeparator() + "ID: " + testJob5.getId() + System.lineSeparator() + "Name: Product tester" + System.lineSeparator() + "Employer: Data not available" + System.lineSeparator() + "Location: Desert" + System.lineSeparator() + "Position Type: Quality control" + System.lineSeparator() + "Core Competency: Data not available" + System.lineSeparator(), testJob5.toString());
     }
 }
