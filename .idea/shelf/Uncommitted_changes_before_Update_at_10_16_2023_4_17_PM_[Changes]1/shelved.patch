@@ -1,0 +1,286 @@
+Index: src/main/java/org/launchcode/techjobs/oo/Location.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.launchcode.techjobs.oo;\r\n\r\nimport java.util.Objects;\r\n\r\npublic class Location {\r\n\r\n    private int id;\r\n    private static int nextId = 1;\r\n    private String value;\r\n\r\n    public Location() {\r\n        id = nextId;\r\n        nextId++;\r\n    }\r\n\r\n    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The\r\n    //  constructor should also call the empty constructor in order to initialize the 'id' field.\r\n    public Location(String value) {\r\n        this();\r\n        this.value = value;\r\n    }\r\n\r\n    // Custom toString, equals, and hashCode methods:\r\n\r\n    @Override\r\n    public String toString() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (!(o instanceof Location)) return false;\r\n        Location location = (Location) o;\r\n        return getId() == location.getId();\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hash(getId());\r\n    }\r\n\r\n    // Getters and Setters:\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n\r\n    public String getValue() {\r\n        if (value == null || value.isEmpty()) {\r\n            return \"Data not available\";\r\n        }\r\n        return value;\r\n    }\r\n\r\n    public void setValue(String value) {\r\n        this.value = value;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/launchcode/techjobs/oo/Location.java b/src/main/java/org/launchcode/techjobs/oo/Location.java
+--- a/src/main/java/org/launchcode/techjobs/oo/Location.java	
++++ b/src/main/java/org/launchcode/techjobs/oo/Location.java	
+@@ -2,31 +2,13 @@
+ 
+ import java.util.Objects;
+ 
+-public class Location {
+-
+-    private int id;
+-    private static int nextId = 1;
+-    private String value;
++public class Location extends JobField {
+ 
+-    public Location() {
+-        id = nextId;
+-        nextId++;
+-    }
+-
+-    // TODO: Add a constructor that takes a string as a parameter and assigns it to the 'value' field. The
+-    //  constructor should also call the empty constructor in order to initialize the 'id' field.
+     public Location(String value) {
+-        this();
+-        this.value = value;
++        super(value);
+     }
+ 
+-    // Custom toString, equals, and hashCode methods:
+-
+-    @Override
+-    public String toString() {
+-        return value;
+-    }
+-
++    // Custom hashCode method:
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) return true;
+@@ -35,26 +17,4 @@
+         return getId() == location.getId();
+     }
+ 
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(getId());
+-    }
+-
+-    // Getters and Setters:
+-
+-    public int getId() {
+-        return id;
+-    }
+-
+-    public String getValue() {
+-        if (value == null || value.isEmpty()) {
+-            return "Data not available";
+-        }
+-        return value;
+-    }
+-
+-    public void setValue(String value) {
+-        this.value = value;
+-    }
+-
+ }
+Index: src/main/java/org/launchcode/techjobs/oo/PositionType.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.launchcode.techjobs.oo;\r\n\r\nimport java.util.Objects;\r\n\r\npublic class PositionType {\r\n\r\n    private int id;\r\n    private static int nextId = 1;\r\n    private String value;\r\n\r\n    public PositionType() {\r\n        id = nextId;\r\n        nextId++;\r\n    }\r\n\r\n    public PositionType(String value) {\r\n        this();\r\n        this.value = value;\r\n    }\r\n\r\n    // TODO: Add a custom toString() method that returns the data stored in 'value'.\r\n\r\n    @Override\r\n    public String toString() {\r\n        return value;\r\n    }\r\n\r\n    // TODO: Add custom equals and hashCode methods. Consider two PositionType objects \"equal\" when\r\n    //  their id fields match.\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (o == null || getClass() != o.getClass()) return false;\r\n        PositionType that = (PositionType) o;\r\n        return id == that.id;\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hash(getId());\r\n    }\r\n\r\n\r\n    // Getters and Setters:\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n\r\n    public String getValue() {\r\n        if (value == null || value.isEmpty()) {\r\n            return \"Data not available\";\r\n        }\r\n        return value;\r\n    }\r\n    public void setValue(String value) {\r\n        this.value = value;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/launchcode/techjobs/oo/PositionType.java b/src/main/java/org/launchcode/techjobs/oo/PositionType.java
+--- a/src/main/java/org/launchcode/techjobs/oo/PositionType.java	
++++ b/src/main/java/org/launchcode/techjobs/oo/PositionType.java	
+@@ -2,32 +2,13 @@
+ 
+ import java.util.Objects;
+ 
+-public class PositionType {
+-
+-    private int id;
+-    private static int nextId = 1;
+-    private String value;
+-
+-    public PositionType() {
+-        id = nextId;
+-        nextId++;
+-    }
++public class PositionType extends JobField {
+ 
+     public PositionType(String value) {
+-        this();
+-        this.value = value;
+-    }
+-
+-    // TODO: Add a custom toString() method that returns the data stored in 'value'.
+-
+-    @Override
+-    public String toString() {
+-        return value;
++        super(value);
+     }
+ 
+-    // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
+-    //  their id fields match.
+-
++    //Custom hashCode Method:
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) return true;
+@@ -36,26 +17,4 @@
+         return id == that.id;
+     }
+ 
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(getId());
+-    }
+-
+-
+-    // Getters and Setters:
+-
+-    public int getId() {
+-        return id;
+-    }
+-
+-    public String getValue() {
+-        if (value == null || value.isEmpty()) {
+-            return "Data not available";
+-        }
+-        return value;
+-    }
+-    public void setValue(String value) {
+-        this.value = value;
+-    }
+-
+ }
+Index: src/main/java/org/launchcode/techjobs/oo/CoreCompetency.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.launchcode.techjobs.oo;\r\n\r\nimport java.util.Objects;\r\n\r\npublic class CoreCompetency {\r\n\r\n    private int id;\r\n    private static int nextId = 1;\r\n    private String value;\r\n\r\n    public CoreCompetency() {\r\n        this.id = nextId;\r\n        nextId++;\r\n    }\r\n\r\n    public CoreCompetency(String value) {\r\n        this();\r\n        this.value = value;\r\n    }\r\n\r\n    // Custom toString, equals, and hashCode methods:\r\n\r\n    @Override\r\n    public String toString() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {\r\n        if (this == o) return true;\r\n        if (!(o instanceof CoreCompetency)) return false;\r\n        CoreCompetency that = (CoreCompetency) o;\r\n        return id == that.id;\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hash(id);\r\n    }\r\n\r\n    // TODO: Use the \"Generate\" tool to add a getter and setter for the 'value' field but\r\n    //  ONLY a getter for the 'id' field.\r\n\r\n    public String getValue() {\r\n        if (value == null || value.isEmpty()) {\r\n            return \"Data not available\";\r\n        }\r\n        return value;\r\n    }\r\n\r\n    public void setValue(String value) {\r\n        this.value = value;\r\n    }\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/launchcode/techjobs/oo/CoreCompetency.java b/src/main/java/org/launchcode/techjobs/oo/CoreCompetency.java
+--- a/src/main/java/org/launchcode/techjobs/oo/CoreCompetency.java	
++++ b/src/main/java/org/launchcode/techjobs/oo/CoreCompetency.java	
+@@ -2,29 +2,13 @@
+ 
+ import java.util.Objects;
+ 
+-public class CoreCompetency {
+-
+-    private int id;
+-    private static int nextId = 1;
+-    private String value;
+-
+-    public CoreCompetency() {
+-        this.id = nextId;
+-        nextId++;
+-    }
++public class CoreCompetency extends JobField {
+ 
+     public CoreCompetency(String value) {
+-        this();
+-        this.value = value;
++        super(value);
+     }
+ 
+-    // Custom toString, equals, and hashCode methods:
+-
+-    @Override
+-    public String toString() {
+-        return value;
+-    }
+-
++    // Custom hashCode method:
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) return true;
+@@ -33,26 +17,4 @@
+         return id == that.id;
+     }
+ 
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(id);
+-    }
+-
+-    // TODO: Use the "Generate" tool to add a getter and setter for the 'value' field but
+-    //  ONLY a getter for the 'id' field.
+-
+-    public String getValue() {
+-        if (value == null || value.isEmpty()) {
+-            return "Data not available";
+-        }
+-        return value;
+-    }
+-
+-    public void setValue(String value) {
+-        this.value = value;
+-    }
+-
+-    public int getId() {
+-        return id;
+-    }
+ }
+Index: src/main/java/org/launchcode/techjobs/oo/Employer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.launchcode.techjobs.oo;\r\n\r\nimport java.util.Objects;\r\n\r\npublic class Employer {\r\n\r\n    private int id;\r\n    private static int nextId = 1;\r\n    private String value;\r\n\r\n    public Employer() {\r\n        id = nextId;\r\n        nextId++;\r\n    }\r\n\r\n    public Employer(String value) {\r\n        this();\r\n        this.value = value;\r\n    }\r\n\r\n    // Custom toString, equals, and hashCode methods:\r\n\r\n    @Override\r\n    public String toString() {\r\n        return value;\r\n    }\r\n\r\n    @Override\r\n    public boolean equals(Object o) {  // Two objects are equal if they have the same id.\r\n        if (this == o) return true;\r\n        if (!(o instanceof Employer)) return false;\r\n        Employer employer = (Employer) o;\r\n        return getId() == employer.getId();\r\n    }\r\n\r\n    @Override\r\n    public int hashCode() {\r\n        return Objects.hash(getId());\r\n    }\r\n\r\n    // Getters and Setters:\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n\r\n    public String getValue() {\r\n        if (value == null || value.isEmpty()) {\r\n            return \"Data not available\";\r\n        } else {\r\n            return value;\r\n        }\r\n    }\r\n\r\n    public void setValue(String value) {\r\n        this.value = value;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/org/launchcode/techjobs/oo/Employer.java b/src/main/java/org/launchcode/techjobs/oo/Employer.java
+--- a/src/main/java/org/launchcode/techjobs/oo/Employer.java	
++++ b/src/main/java/org/launchcode/techjobs/oo/Employer.java	
+@@ -2,29 +2,13 @@
+ 
+ import java.util.Objects;
+ 
+-public class Employer {
+-
+-    private int id;
+-    private static int nextId = 1;
+-    private String value;
+-
+-    public Employer() {
+-        id = nextId;
+-        nextId++;
+-    }
++public class Employer extends JobField {
+ 
+     public Employer(String value) {
+-        this();
+-        this.value = value;
++        super(value);
+     }
+ 
+-    // Custom toString, equals, and hashCode methods:
+-
+-    @Override
+-    public String toString() {
+-        return value;
+-    }
+-
++    // Custom hashCode method:
+     @Override
+     public boolean equals(Object o) {  // Two objects are equal if they have the same id.
+         if (this == o) return true;
+@@ -33,27 +17,4 @@
+         return getId() == employer.getId();
+     }
+ 
+-    @Override
+-    public int hashCode() {
+-        return Objects.hash(getId());
+-    }
+-
+-    // Getters and Setters:
+-
+-    public int getId() {
+-        return id;
+-    }
+-
+-    public String getValue() {
+-        if (value == null || value.isEmpty()) {
+-            return "Data not available";
+-        } else {
+-            return value;
+-        }
+-    }
+-
+-    public void setValue(String value) {
+-        this.value = value;
+-    }
+-
+ }
